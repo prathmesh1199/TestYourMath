@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:weightSum="10"
+    android:orientation="vertical"
+    tools:context=".Easy">
+
+   <LinearLayout
+       android:id="@+id/top_layout"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_marginTop="50dp"
+       android:weightSum="10"
+       android:layout_weight="5"
+       android:gravity="center_vertical"
+       android:orientation="horizontal"
+       >
+
+       <TextView
+           android:id="@+id/tv_easy_num1"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_weight="2"
+           android:text=""
+           android:gravity="center"
+           android:textSize="24sp"
+           ></TextView>
+
+       <EditText
+           android:id="@+id/edt_easy_opr1"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_weight="2"
+           android:textSize="24sp"
+            android:gravity="center"
+           ></EditText>
+
+       <TextView
+           android:id="@+id/tv_easy_num2"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_weight="2"
+           android:textSize="24sp"
+           android:gravity="center"
+           android:text=""
+           ></TextView>
+
+       <TextView
+           android:id="@+id/tv_easy_equ"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_weight="2"
+           android:textSize="24sp"
+           android:text="="
+           android:gravity="center"
+           ></TextView>
+
+       <TextView
+           android:id="@+id/tv_easy_op"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_weight="2"
+           android:textSize="24sp"
+           android:text=""
+           ></TextView>
+
+
+   </LinearLayout>
+
+   <LinearLayout
+       android:layout_below="@id/top_layout"
+       android:layout_marginTop="20dp"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:weightSum="10"
+       android:layout_weight="5"
+       android:padding="5dp"
+       android:orientation="vertical"
+       >
+
+       <LinearLayout
+
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:weightSum="10"
+           android:orientation="horizontal"
+           android:layout_weight="5">
+
+           <ImageButton
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="5"
+               android:src="@drawable/plus"
+               android:scaleType="centerCrop"
+               android:onClick="OnPlusClick"
+               ></ImageButton>
+
+           <ImageButton
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="5"
+               android:src="@drawable/minus"
+               android:scaleType="centerCrop"
+               ></ImageButton>
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_weight="5"
+           >
+
+           <ImageButton
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="5"
+               android:src="@drawable/multiply"
+               android:scaleType="centerCrop"
+               ></ImageButton>
+
+           <ImageButton
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="5"
+               android:src="@drawable/divide"
+               android:scaleType="centerCrop"
+               ></ImageButton>
+
+       </LinearLayout>
+
+   </LinearLayout>
+
+
+
+</LinearLayout>
