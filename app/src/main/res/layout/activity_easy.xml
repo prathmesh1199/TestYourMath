@@ -105,6 +105,7 @@
                android:layout_weight="5"
                android:src="@drawable/minus"
                android:scaleType="centerCrop"
+               android:onClick="OnMinusClick"
                ></ImageButton>
 
        </LinearLayout>
@@ -121,6 +122,7 @@
                android:layout_weight="5"
                android:src="@drawable/multiply"
                android:scaleType="centerCrop"
+               android:onClick="OnMultiplyClick"
                ></ImageButton>
 
            <ImageButton
@@ -129,6 +131,7 @@
                android:layout_weight="5"
                android:src="@drawable/divide"
                android:scaleType="centerCrop"
+               android:onClick="OnDivideClick"
                ></ImageButton>
 
        </LinearLayout>
