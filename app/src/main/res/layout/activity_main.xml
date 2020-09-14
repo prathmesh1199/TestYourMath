@@ -13,10 +13,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Play"
-        android:layout_centerInParent="true"
+        android:textSize="20dp"
+
+        android:layout_above="@id/btn_Setting"
         android:fontFamily="@font/quicksand_bold"
         android:onClick="OnPlayClick"
         ></Button>
 
+    <Button
+        android:id="@+id/btn_Setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Setting"
+        android:textSize="20dp"
+        android:layout_centerInParent="true"
 
+        android:fontFamily="@font/quicksand_bold"
+        android:onClick="OnSettingClick"
+        ></Button>
+
+    <Button
+        android:id="@+id/btn_Close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Close"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:layout_below="@id/btn_Setting"
+        android:fontFamily="@font/quicksand_bold"
+        android:onClick="OnSettingClick"
+        ></Button>
 </RelativeLayout>

@@ -32,4 +32,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this , Easy.class);
         startActivity(intent);
     }
+
+    public void OnSettingClick(View view) {
+    }
 }
