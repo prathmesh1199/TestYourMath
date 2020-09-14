@@ -70,9 +70,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String current_top_score_string = c.getString(idx);
 
             if(current_top_score_string == " - ") {
-                ContentValues cv = new ContentValues();
-                cv.put(level , String.valueOf(score));
-                sqLiteDatabase.update(table_name , cv , " = ?" , new String[] {});
+                String sc = String.valueOf(score);
+                sqLiteDatabase.execSQL("UPDATE " + table_name +  " SET " + level + " = 'sc' ");
             }
         }
     }
