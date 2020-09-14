@@ -26,6 +26,8 @@ public class Easy extends AppCompatActivity {
     private long timeLeftInMilliseconds = 60000;
     private boolean timerrunning;
 
+    DatabaseHelper db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +40,9 @@ public class Easy extends AppCompatActivity {
         tv_score = findViewById(R.id.tv_score);
         tv_time_left = findViewById(R.id.tv_time_left);
 
-        countDownTimer = new CountDownTimer(60005 , 1000) {
+        db = new DatabaseHelper(Easy.this);
+
+        countDownTimer = new CountDownTimer(6000 , 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 tv_time_left.setText(""+String.format("%d : %d ",
@@ -60,6 +64,10 @@ public class Easy extends AppCompatActivity {
                 });
                 builder.create();
                 builder.show();
+
+                Log.d("here", "onFinish: easyyyy 1");
+                db.insert("easy" , "level1" , Integer.parseInt(tv_score.getText().toString().trim()));
+                Log.d("here", "onFinish: easyyyy 2");
             }
         };
 
