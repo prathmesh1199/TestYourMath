@@ -13,9 +13,8 @@
         android:layout_height="wrap_content"
         android:text="Play"
         android:layout_centerInParent="true"
+        android:fontFamily="@font/quicksand_bold"
         android:onClick="OnPlayClick"
         ></Button>
-
-
 
 </RelativeLayout>
