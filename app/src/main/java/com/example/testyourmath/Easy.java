@@ -71,6 +71,7 @@ public class Easy extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
+
                 builder.create();
                 builder.show();
 

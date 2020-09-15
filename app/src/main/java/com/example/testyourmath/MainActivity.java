@@ -37,4 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void OnSettingClick(View view) {
     }
+
+    public void OnCloseClick(View view) {
+        finish();
+    }
 }
