@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -19,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Easy extends AppCompatActivity {
 
-    TextView tv_num1 , tv_num2  , tv_op , tv_score , tv_time_left;
+    TextView tv_num1 , tv_num2  , tv_op , tv_score , tv_time_left , tv_high_score;
     EditText edt_opr;
 
     private CountDownTimer countDownTimer;
@@ -33,14 +35,21 @@ public class Easy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_easy);
 
+        getSupportActionBar().hide();
+
         tv_num1 = findViewById(R.id.tv_easy_num1);
         tv_num2 = findViewById(R.id.tv_easy_num2);
         edt_opr = findViewById(R.id.edt_easy_opr1);
         tv_op = findViewById(R.id.tv_easy_op);
         tv_score = findViewById(R.id.tv_score);
         tv_time_left = findViewById(R.id.tv_time_left);
+        tv_high_score = findViewById(R.id.tv_high_score);
 
         db = new DatabaseHelper(Easy.this);
+        String high_score = "High Score : ";
+        high_score += db.getData();
+
+        tv_high_score.setText(high_score);
 
         countDownTimer = new CountDownTimer(6000 , 1000) {
             @Override

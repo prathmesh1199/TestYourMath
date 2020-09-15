@@ -8,6 +8,16 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:textSize="30sp"
+        android:text="Test Your Math"
+        android:gravity="center"
+        android:fontFamily="@font/quicksand_bold"
+        ></TextView>
+
     <Button
         android:id="@+id/btn_play"
         android:layout_width="match_parent"
