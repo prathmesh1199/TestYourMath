@@ -37,13 +37,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String medium = "CREATE TABLE table_medium(level1 VARCHAR , level2 VARCHAR , level3 VARCHAR);";
         String hard = "CREATE TABLE table_hard(level1 VARCHAR , level2 VARCHAR , level3 VARCHAR);";
 
-        Log.d("here", "onCreate: 1");
 
         sqLiteDatabase.execSQL(easy);
         sqLiteDatabase.execSQL(medium);
         sqLiteDatabase.execSQL(hard);
 
-        Log.d("here", "onCreate: 2");
 
         ContentValues cv = new ContentValues();
         String s = " - ";
@@ -51,12 +49,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put("level2" , s);
         cv.put("level3" , s);
 
-        Log.d("here", "onCreate: 3");
+
         sqLiteDatabase.insert("table_easy" , null , cv);
         sqLiteDatabase.insert("table_medium" , null , cv);
         sqLiteDatabase.insert("table_hard" , null , cv);
 
-        Log.d("here", "onCreate: 4");
+
     }
 
     @Override
@@ -68,35 +66,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // stage : easy / medium / hard
         // level : level 1 / level 2 / level 3
 
-        Log.d("here", "insert: 1");
         String table_name = "table_" + stage;
-        Log.d("here", "insert: 2 " + table_name);
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        Log.d("here", "insert: 3");
+
         Cursor c = sqLiteDatabase.rawQuery("SELECT * FROM " + table_name , null );
 
-        Log.d("here", "insert: 4");
         if(c.moveToFirst()) {
-            Log.d("here", "insert: 5");
+
             int idx =c.getColumnIndex(level);
-            Log.d("here", "insert: 6");
+
             String current_top_score_string = c.getString(idx);
 
-            Log.d("here", "insert: 7");
             if(current_top_score_string.equals(" - ")) {
-                Log.d("here", "insert: 8");
+
                 String sc = String.valueOf(score);
                 sqLiteDatabase.execSQL("UPDATE " + table_name +  " SET " + level + " = " + sc);
             } else {
-                Log.d("here", "insert:  9 "  + current_top_score_string);
+
                 int curr = Integer.valueOf(current_top_score_string);
-                Log.d("here", "insert: 10");
+
                 if(score >= curr) {
-                    Log.d("here", "insert: 11");
+
                     String sc = String.valueOf(score);
-                    Log.d("here", "insert: 12");
+
                     sqLiteDatabase.execSQL("UPDATE " + table_name +  " SET " + level + " = "  + sc );
-                    Log.d("here", "insert: 12");
+
                 }
             }
         }

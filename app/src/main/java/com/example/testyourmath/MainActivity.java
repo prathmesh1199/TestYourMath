@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnPlayClick(View view) {
-        Intent intent = new Intent(this , Easy.class);
+        Intent intent = new Intent(this , TypesOfGame.class);
         startActivity(intent);
     }
 

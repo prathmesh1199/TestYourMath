@@ -14,11 +14,13 @@
         android:text="Classic"
         android:textSize="24sp"
         android:fontFamily="@font/quicksand_bold"
+
         android:layout_centerInParent="true"
         ></Button>
 
     <Button
         android:id="@+id/btn_timer"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_classic"
