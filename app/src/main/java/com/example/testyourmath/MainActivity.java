@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnCloseClick(View view) {
-        finish();
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
+       // finish();
     }
 }

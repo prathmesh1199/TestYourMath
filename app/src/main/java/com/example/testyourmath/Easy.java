@@ -78,6 +78,7 @@ public class Easy extends AppCompatActivity {
                 Log.d("here", "onFinish: easyyyy 1");
                 db.insert("easy" , "level1" , Integer.parseInt(tv_score.getText().toString().trim()));
                 Log.d("here", "onFinish: easyyyy 2");
+
             }
         };
 
