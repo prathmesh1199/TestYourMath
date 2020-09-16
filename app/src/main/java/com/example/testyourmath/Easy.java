@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 public class Easy extends AppCompatActivity {
 
     TextView tv_num1 , tv_num2  , tv_op , tv_score , tv_time_left , tv_high_score;
-    EditText edt_opr;
+    TextView tv_opr;
 
     private CountDownTimer countDownTimer;
     private long timeLeftInMilliseconds = 60000;
@@ -39,15 +39,15 @@ public class Easy extends AppCompatActivity {
 
         tv_num1 = findViewById(R.id.tv_easy_num1);
         tv_num2 = findViewById(R.id.tv_easy_num2);
-        edt_opr = findViewById(R.id.edt_easy_opr1);
+        tv_opr = findViewById(R.id.tv_easy_opr1);
         tv_op = findViewById(R.id.tv_easy_op);
         tv_score = findViewById(R.id.tv_score);
         tv_time_left = findViewById(R.id.tv_time_left);
         tv_high_score = findViewById(R.id.tv_high_score);
 
         db = new DatabaseHelper(Easy.this);
-        String high_score = "High Score : ";
-        high_score += db.getData();
+
+        String high_score = db.getData();
 
         tv_high_score.setText(high_score);
 
@@ -72,8 +72,8 @@ public class Easy extends AppCompatActivity {
                     }
                 });
 
-                builder.create();
-                builder.show();
+                AlertDialog alertDialog = builder.show();
+                alertDialog.setCanceledOnTouchOutside(false);
 
                 Log.d("here", "onFinish: easyyyy 1");
                 db.insert("easy" , "level1" , Integer.parseInt(tv_score.getText().toString().trim()));
@@ -87,7 +87,7 @@ public class Easy extends AppCompatActivity {
     }
 
     public void OnPlusClick(View view) {
-        edt_opr.setText(String.valueOf('+'));
+        tv_opr.setText(String.valueOf('+'));
         int n1 = Integer.parseInt(tv_num1.getText().toString().trim());
         int n2 = Integer.parseInt(tv_num2.getText().toString().trim());
         int op = Integer.parseInt(tv_op.getText().toString().trim());
@@ -100,14 +100,14 @@ public class Easy extends AppCompatActivity {
 
             score++;
             tv_score.setText(String.valueOf(score));
-            edt_opr.setText("");
+            tv_opr.setText("");
             show();
         }
         else Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
     }
 
     public void OnMinusClick(View view) {
-        edt_opr.setText(String.valueOf('-'));
+        tv_opr.setText(String.valueOf('-'));
         int n1 = Integer.parseInt(tv_num1.getText().toString().trim());
         int n2 = Integer.parseInt(tv_num2.getText().toString().trim());
         int op = Integer.parseInt(tv_op.getText().toString().trim());
@@ -121,7 +121,7 @@ public class Easy extends AppCompatActivity {
 
             score++;
             tv_score.setText(String.valueOf(score));
-            edt_opr.setText("");
+            tv_opr.setText("");
             show();
         }
         else Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
@@ -129,7 +129,7 @@ public class Easy extends AppCompatActivity {
     }
 
     public void OnMultiplyClick(View view) {
-        edt_opr.setText(String.valueOf('*'));
+        tv_opr.setText(String.valueOf('*'));
 
         int n1 = Integer.parseInt(tv_num1.getText().toString().trim());
         int n2 = Integer.parseInt(tv_num2.getText().toString().trim());
@@ -144,7 +144,7 @@ public class Easy extends AppCompatActivity {
 
             score++;
             tv_score.setText(String.valueOf(score));
-            edt_opr.setText("");
+            tv_opr.setText("");
             show();
         }
         else Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
@@ -152,7 +152,7 @@ public class Easy extends AppCompatActivity {
     }
 
     public void OnDivideClick(View view) {
-        edt_opr.setText(String.valueOf('/'));
+        tv_opr.setText(String.valueOf('/'));
 
         int n1 = Integer.parseInt(tv_num1.getText().toString().trim());
         int n2 = Integer.parseInt(tv_num2.getText().toString().trim());
@@ -166,7 +166,7 @@ public class Easy extends AppCompatActivity {
 
             score++;
             tv_score.setText(String.valueOf(score));
-            edt_opr.setText("");
+            tv_opr.setText("");
 
             show();
         }
@@ -226,7 +226,7 @@ public class Easy extends AppCompatActivity {
         tv_num1.setText(String.valueOf(n1));
         tv_num2.setText(String.valueOf(n2));
 
-        //edt_opr.setText(String.valueOf(opr[idx]));
+        tv_opr.setText("?");
         tv_op.setText(String.valueOf(op));
     }
 }
