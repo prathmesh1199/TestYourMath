@@ -230,6 +230,7 @@
                android:onClick="OnPlusClick"
                ></Button>
 
+
            <Button
                android:id="@+id/btn_minus"
                android:layout_width="0dp"

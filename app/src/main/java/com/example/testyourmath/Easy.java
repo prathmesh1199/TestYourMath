@@ -33,7 +33,7 @@ public class Easy extends AppCompatActivity {
     TextView tv_num1 , tv_num2  , tv_op , tv_score , tv_time_left , tv_high_score;
     TextView tv_opr;
     Button btn_plus , btn_minus , btn_multiply , btn_divide;
-
+    Handler handler = new Handler();
 
     private CountDownTimer countDownTimer;
     private long timeLeftInMilliseconds = 60000;
@@ -139,13 +139,15 @@ public class Easy extends AppCompatActivity {
 
             Drawable d = getResources().getDrawable(R.drawable.green_button);
             btn_plus.setBackground(d);
-
+            DelayButtonColor(btn_plus);
             show();
         }
         else {
             Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
             Drawable d = getResources().getDrawable(R.drawable.red_button);
             btn_plus.setBackground(d);
+            DelayButtonColor(btn_plus);
+            show();
         }
     }
 
@@ -168,13 +170,15 @@ public class Easy extends AppCompatActivity {
 
             Drawable d = getResources().getDrawable(R.drawable.green_button);
             btn_minus.setBackground(d);
-
+            DelayButtonColor(btn_minus);
             show();
         }
         else {
             Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
             Drawable d = getResources().getDrawable(R.drawable.red_button);
             btn_minus.setBackground(d);
+            DelayButtonColor(btn_minus);
+            show();
         }
 
     }
@@ -196,15 +200,18 @@ public class Easy extends AppCompatActivity {
             score++;
             tv_score.setText(String.valueOf(score));
             tv_opr.setText("");
-            Drawable d = getResources().getDrawable(R.drawable.green_button);
-            btn_multiply.setBackground(d);
 
+             Drawable d = getResources().getDrawable(R.drawable.green_button);
+            btn_multiply.setBackground(d);
+            DelayButtonColor(btn_multiply);
             show();
         }
         else {
             Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
             Drawable d = getResources().getDrawable(R.drawable.red_button);
             btn_multiply.setBackground(d);
+            DelayButtonColor(btn_multiply);
+            show();
         }
 
     }
@@ -226,15 +233,18 @@ public class Easy extends AppCompatActivity {
             tv_score.setText(String.valueOf(score));
             tv_opr.setText("");
 
+          //added for
             Drawable d = getResources().getDrawable(R.drawable.green_button);
             btn_divide.setBackground(d);
-
+             DelayButtonColor(btn_divide);
             show();
         }
         else {
             Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
             Drawable d = getResources().getDrawable(R.drawable.red_button);
             btn_divide.setBackground(d);
+            DelayButtonColor(btn_divide);
+            show();
         }
 
     }
@@ -253,6 +263,20 @@ public class Easy extends AppCompatActivity {
         outState.putString("time" , time);
     }*/
 
+    public void DelayButtonColor(Button prm_Button)
+    {
+        final Button btn_Color=prm_Button;
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Drawable d = getResources().getDrawable(R.drawable.mybutton);
+                btn_Color.setBackground(d);
+            }
+        }, 2000);
+
+    }
+
+
     public void show() {
         Random random = new Random();
         int n1 = random.nextInt(10) + 1 ;
@@ -261,9 +285,12 @@ public class Easy extends AppCompatActivity {
         Drawable d = getResources().getDrawable(R.drawable.mybutton);
 
         //Remove this comments to restore original colors to button
-        
+
         //btn_divide.setBackground(d);
+       // (new Handler()).postDelayed( 5000);
+
         //btn_multiply.setBackground(d);
+
         //btn_minus.setBackground(d);
         //btn_plus.setBackground(d);
 
