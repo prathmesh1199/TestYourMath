@@ -7,7 +7,7 @@
     android:padding="5dp"
     android:weightSum="10"
     android:orientation="vertical"
-    android:background="@drawable/background"
+
 
     tools:context=".Easy">
 
@@ -215,23 +215,36 @@
            android:orientation="horizontal"
            android:layout_weight="5">
 
-           <ImageButton
+           <Button
+               android:id="@+id/btn_plus"
                android:layout_width="0dp"
-               android:layout_height="match_parent"
+               android:layout_height="wrap_content"
                android:layout_weight="5"
-               android:src="@drawable/plus"
+               android:text="+"
+               android:layout_marginLeft="20dp"
+               android:textSize="32sp"
+               android:layout_gravity="bottom"
                android:scaleType="centerCrop"
+               android:textColor="#FFFFFF"
+               android:background="@drawable/mybutton"
                android:onClick="OnPlusClick"
-               ></ImageButton>
+               ></Button>
 
-           <ImageButton
+           <Button
+               android:id="@+id/btn_minus"
                android:layout_width="0dp"
-               android:layout_height="match_parent"
+               android:layout_height="wrap_content"
                android:layout_weight="5"
-               android:src="@drawable/minus"
+               android:text="-"
+               android:layout_marginRight="20dp"
+               android:textSize="32sp"
+               android:layout_marginLeft="10dp"
+               android:layout_gravity="bottom"
+               android:textColor="#FFFFFF"
                android:scaleType="centerCrop"
+               android:background="@drawable/mybutton"
                android:onClick="OnMinusClick"
-               ></ImageButton>
+               ></Button>
 
        </LinearLayout>
 
@@ -241,23 +254,38 @@
            android:layout_weight="5"
            >
 
-           <ImageButton
+           <Button
+               android:id="@+id/btn_multiply"
                android:layout_width="0dp"
-               android:layout_height="match_parent"
+               android:layout_height="wrap_content"
                android:layout_weight="5"
-               android:src="@drawable/multiply"
+               android:background="@drawable/mybutton"
                android:scaleType="centerCrop"
-               android:onClick="OnMultiplyClick"
-               ></ImageButton>
+               android:text="*"
+               android:textColor="#FFFFFF"
+               android:textSize="32sp"
+               android:layout_marginTop="10dp"
+               android:layout_marginLeft="20dp"
 
-           <ImageButton
+               android:layout_gravity="top"
+               android:onClick="OnMultiplyClick"
+               ></Button>
+
+           <Button
+               android:id="@+id/btn_divide"
                android:layout_width="0dp"
-               android:layout_height="match_parent"
+               android:background="@drawable/mybutton"
+               android:layout_height="wrap_content"
                android:layout_weight="5"
-               android:src="@drawable/divide"
+               android:textSize="32sp"
+               android:text="/"
+               android:textColor="#FFFFFF"
+               android:layout_marginTop="10dp"
+               android:layout_marginLeft="10dp"
+               android:layout_marginRight="20dp"
                android:scaleType="centerCrop"
                android:onClick="OnDivideClick"
-               ></ImageButton>
+               ></Button>
 
        </LinearLayout>
 

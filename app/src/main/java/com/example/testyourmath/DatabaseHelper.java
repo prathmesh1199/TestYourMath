@@ -94,6 +94,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 }
             }
         }
+        sqLiteDatabase.close();
     }
 
     public String getData() {
@@ -116,6 +117,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         Log.d("here", "getData: ans : " + ans );
+        sqLiteDatabase.close();
         return ans;
     }
 }

@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,11 +18,15 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper db;
     Button btn_view;
+    ImageView img_btn_main;
+
+    // Activity lifecycle : in game if phone comes timer should stop
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         getSupportActionBar().hide();
         db = new DatabaseHelper(MainActivity.this);

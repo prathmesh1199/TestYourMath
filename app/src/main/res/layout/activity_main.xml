@@ -1,60 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:background="@drawable/background"
+
+    android:background="@drawable/new_background"
+    android:weightSum="10"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:textSize="30sp"
-        android:text="Test Your Math"
-        android:gravity="center"
-        android:fontFamily="@font/quicksand_bold"
-        ></TextView>
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:weightSum="10"
+        android:orientation="vertical"
+        >
 
-    <Button
-        android:id="@+id/btn_play"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Play"
-        android:textSize="20dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginRight="70dp"
-        android:layout_above="@id/btn_Setting"
-        android:fontFamily="@font/quicksand_bold"
-        android:onClick="OnPlayClick"
-        ></Button>
 
-    <Button
-        android:id="@+id/btn_Setting"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Setting"
-        android:textSize="20dp"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="70dp"
-        android:layout_marginRight="70dp"
-        android:fontFamily="@font/quicksand_bold"
-        android:onClick="OnSettingClick"
-        ></Button>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:src="@drawable/main_background"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            >
 
-    <Button
-        android:id="@+id/btn_Close"
+        </ImageView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:fontFamily="@font/quicksand_bold"
+            android:gravity="center"
+            android:text="Test Your Math"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:padding="20dp"
+
+            android:textSize="28sp"></TextView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cancel"
-        android:gravity="center"
-        android:layout_marginLeft="70dp"
-        android:layout_marginRight="70dp"
-        android:textSize="20dp"
-        android:layout_below="@id/btn_Setting"
-        android:fontFamily="@font/quicksand_bold"
-        android:onClick="OnCloseClick"
-        ></Button>
-</RelativeLayout>
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:orientation="vertical"
+        android:weightSum="16"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            ></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="10"
+                android:orientation="horizontal"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:weightSum="10"
+                    android:orientation="vertical"
+                    >
+
+
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_weight="7"
+                        android:layout_height="0dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:maxWidth="80dp"
+                        android:maxHeight="80dp"
+                        android:scaleType="fitCenter"
+                        android:onClick="OnPlayClick"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/new_paint_play"></ImageButton>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:text="Play"
+                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:textColor="@color/design_default_color_on_secondary"
+                        android:fontFamily="@font/quicksand_bold"
+                        ></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:weightSum="10"
+                    android:orientation="vertical"
+                    >
+
+
+                    <ImageButton
+
+                        android:layout_width="match_parent"
+                        android:layout_weight="7"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="0dp"
+                        android:layout_centerInParent="true"
+                        android:onClick="OnSettingClick"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:maxWidth="80dp"
+                        android:maxHeight="80dp"
+                        android:scaleType="fitCenter"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/new_settings"></ImageButton>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:text="Settings"
+                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:textColor="@color/design_default_color_on_secondary"
+                        android:fontFamily="@font/quicksand_bold"
+                        ></TextView>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6"
+            android:weightSum="10"
+            android:orientation="vertical"
+            >
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_weight="7"
+                android:layout_height="0dp"
+                android:layout_centerInParent="true"
+                android:onClick="OnCloseClick"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:maxWidth="80dp"
+                android:maxHeight="80dp"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:src="@drawable/new_close"></ImageButton>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:text="Close"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:fontFamily="@font/quicksand_bold"
+                ></TextView>
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+x
+
+
+
+
+
+</LinearLayout>

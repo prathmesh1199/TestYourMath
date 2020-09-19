@@ -1,16 +1,25 @@
 package com.example.testyourmath;
 
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
+import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -23,11 +32,16 @@ public class Easy extends AppCompatActivity {
 
     TextView tv_num1 , tv_num2  , tv_op , tv_score , tv_time_left , tv_high_score;
     TextView tv_opr;
+    Button btn_plus , btn_minus , btn_multiply , btn_divide;
+
 
     private CountDownTimer countDownTimer;
     private long timeLeftInMilliseconds = 60000;
     private boolean timerrunning;
 
+    String current_score , highest_score;
+
+    int start_time = 60000;
     DatabaseHelper db;
 
     @Override
@@ -45,13 +59,21 @@ public class Easy extends AppCompatActivity {
         tv_time_left = findViewById(R.id.tv_time_left);
         tv_high_score = findViewById(R.id.tv_high_score);
 
+        btn_plus = findViewById(R.id.btn_plus);
+        btn_minus = findViewById(R.id.btn_minus);
+        btn_multiply = findViewById(R.id.btn_multiply);
+        btn_divide = findViewById(R.id.btn_divide);
+
         db = new DatabaseHelper(Easy.this);
 
         String high_score = db.getData();
 
+        highest_score = high_score;
+
         tv_high_score.setText(high_score);
 
-        countDownTimer = new CountDownTimer(6000 , 1000) {
+
+        countDownTimer = new CountDownTimer(start_time , 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 tv_time_left.setText(""+String.format("%d : %d ",
@@ -85,6 +107,18 @@ public class Easy extends AppCompatActivity {
         countDownTimer.start();
         show();
 
+        /*if(savedInstanceState != null) {
+            String score = savedInstanceState.getString("score");
+            highest_score = savedInstanceState.getString("high_score");
+            String time = savedInstanceState.getString("time");
+
+            start_time = Integer.parseInt(time);
+
+            tv_score.setText(score);
+            tv_high_score.setText(highest_score);
+            tv_time_left.setText(time);
+        }*/
+
     }
 
     public void OnPlusClick(View view) {
@@ -102,9 +136,17 @@ public class Easy extends AppCompatActivity {
             score++;
             tv_score.setText(String.valueOf(score));
             tv_opr.setText("");
+
+            Drawable d = getResources().getDrawable(R.drawable.green_button);
+            btn_plus.setBackground(d);
+
             show();
         }
-        else Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
+        else {
+            Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
+            Drawable d = getResources().getDrawable(R.drawable.red_button);
+            btn_plus.setBackground(d);
+        }
     }
 
     public void OnMinusClick(View view) {
@@ -123,9 +165,17 @@ public class Easy extends AppCompatActivity {
             score++;
             tv_score.setText(String.valueOf(score));
             tv_opr.setText("");
+
+            Drawable d = getResources().getDrawable(R.drawable.green_button);
+            btn_minus.setBackground(d);
+
             show();
         }
-        else Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
+        else {
+            Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
+            Drawable d = getResources().getDrawable(R.drawable.red_button);
+            btn_minus.setBackground(d);
+        }
 
     }
 
@@ -146,9 +196,16 @@ public class Easy extends AppCompatActivity {
             score++;
             tv_score.setText(String.valueOf(score));
             tv_opr.setText("");
+            Drawable d = getResources().getDrawable(R.drawable.green_button);
+            btn_multiply.setBackground(d);
+
             show();
         }
-        else Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
+        else {
+            Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
+            Drawable d = getResources().getDrawable(R.drawable.red_button);
+            btn_multiply.setBackground(d);
+        }
 
     }
 
@@ -169,17 +226,46 @@ public class Easy extends AppCompatActivity {
             tv_score.setText(String.valueOf(score));
             tv_opr.setText("");
 
+            Drawable d = getResources().getDrawable(R.drawable.green_button);
+            btn_divide.setBackground(d);
+
             show();
         }
-        else Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
+        else {
+            Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
+            Drawable d = getResources().getDrawable(R.drawable.red_button);
+            btn_divide.setBackground(d);
+        }
 
     }
 
+
+
+    /*@Override
+    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+
+        String score = tv_score.getText().toString().trim();
+        String time = tv_time_left.toString().trim();
+
+        outState.putString("score" , score);
+        outState.putString("high_score" , highest_score);
+        outState.putString("time" , time);
+    }*/
 
     public void show() {
         Random random = new Random();
         int n1 = random.nextInt(10) + 1 ;
         int n2 = random.nextInt(10) + 1;
+
+        Drawable d = getResources().getDrawable(R.drawable.mybutton);
+
+        //Remove this comments to restore original colors to button
+        
+        //btn_divide.setBackground(d);
+        //btn_multiply.setBackground(d);
+        //btn_minus.setBackground(d);
+        //btn_plus.setBackground(d);
 
         char[] opr = new char[4];
         opr[0] = '+';
@@ -229,5 +315,13 @@ public class Easy extends AppCompatActivity {
 
         tv_opr.setText("?");
         tv_op.setText(String.valueOf(op));
+
+        Animation anim = new AlphaAnimation(0.0f , 1.0f);
+        anim.setDuration(1000); //You can manage the blinking time with this parameter
+        anim.setStartOffset(20);
+        anim.setRepeatMode(Animation.REVERSE);
+        anim.setRepeatCount(Animation.INFINITE);
+        tv_opr.startAnimation(anim);
+
     }
 }
