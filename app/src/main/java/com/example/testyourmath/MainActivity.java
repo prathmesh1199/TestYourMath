@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         db = new DatabaseHelper(MainActivity.this);
 
-        String curr = db.getData();
+        String curr = db.getData(2);
         Log.d("here", "onCreate: curr : " + curr);
 
     }

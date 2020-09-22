@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:background="@drawable/background"
+    android:background="@drawable/game_score_background"
     android:weightSum="10"
     android:orientation="vertical"
     tools:context=".ClassicGame">
@@ -38,29 +37,62 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:weightSum="10"
+                    android:weightSum="15"
                     android:orientation="horizontal"
                     >
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="6"
-                        android:id="@+id/tv_classic_high_score"
+                        android:layout_weight="4"
+
+                        android:gravity="center"
+                        android:fontFamily="@font/quicksand_bold"
+
                         android:textSize="24sp"
                         ></TextView>
 
                     <TextView
-                        android:id="@+id/tv_classic_lives_left"
                         android:layout_width="0dp"
-                        android:layout_weight="4"
+                        android:layout_height="match_parent"
+
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:textSize="24sp"
+                        ></TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+
+                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:fontFamily="@font/quicksand_bold"
+                        ></TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:textSize="24sp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:gravity="center"
+
+
+                        ></TextView>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
                         android:layout_height="match_parent"
                         android:layout_marginRight="20dp"
                         android:layout_gravity="center_vertical"
-                        android:gravity="end"
+                        android:gravity="center"
                         android:textSize="24sp"
-                        android:fontFamily="@font/quicksand_bold"
 
+                        android:fontFamily="@font/quicksand_bold"
 
                         ></TextView>
 
@@ -75,29 +107,77 @@
                 android:layout_height="0dp"
                 android:layout_weight="6"
                 android:weightSum="10"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 >
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:weightSum="10"
                     android:layout_weight="5"
-                    android:text="Score : "
+                    android:orientation="horizontal"
+                    >
 
-                    android:gravity="center"
-                    android:fontFamily="@font/quicksand_bold"
-                    android:textSize="24sp"
-                    ></TextView>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="7"
+                        android:text="Highest Score : "
+                        android:gravity="end|center"
+                        android:textSize="24sp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:textColor="#000000"
+                        ></TextView>
+
+                    <TextView
+                        android:id="@+id/tv_classic_high_score"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:textColor="#000000"
+                        ></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:weightSum="10"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="7"
+                        android:text="Lives Left : "
+                        android:gravity="center|end"
+                        android:textSize="24sp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:textColor="#000000"
+                        ></TextView>
+
+                    <TextView
+                        android:id="@+id/tv_classic_lives_left"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:textColor="#000000"
+                        ></TextView>
+
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/tv_classic_score"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="5"
-                    android:text="0"
-                    android:gravity="center"
-                    android:fontFamily="@font/quicksand_bold"
-                    android:textSize="24sp"
                     ></TextView>
 
             </LinearLayout>
@@ -105,76 +185,122 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/classic_top_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="50dp"
-            android:weightSum="10"
             android:layout_weight="5"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
+            android:weightSum="10"
+            android:orientation="vertical"
             >
 
-            <TextView
-                android:id="@+id/tv_classic_easy_num1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text=""
-                android:fontFamily="@font/quicksand_bold"
-                android:gravity="center"
-                android:textSize="24sp"
-                ></TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                >
 
-            <TextView
-                android:id="@+id/edt_classic_easy_opr1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:textSize="24sp"
-                android:fontFamily="@font/quicksand_bold"
-                android:gravity="center"
-                ></TextView>
+                <TextView
 
-            <TextView
-                android:id="@+id/tv_classic_easy_num2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:textSize="24sp"
-                android:gravity="center"
-                android:fontFamily="@font/quicksand_bold"
-                android:text=""
-                ></TextView>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tv_classic_score"
+                    android:text="0"
+                    android:gravity="center"
+                    android:textSize="28sp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:textColor="#000000"
+                    android:paddingLeft="170dp"
+                    android:paddingBottom="10dp"
+                    ></TextView>
 
-            <TextView
-                android:id="@+id/tv_classic_easy_equ"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:textSize="24sp"
-                android:fontFamily="@font/quicksand_bold"
-                android:text="="
-                android:gravity="center"
-                ></TextView>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_classic_easy_op"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:fontFamily="@font/quicksand_bold"
-                android:textSize="24sp"
-                android:text=""
-                ></TextView>
+
+            <LinearLayout
+                android:id="@+id/top_classic_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:weightSum="10"
+                android:layout_weight="6"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                >
+
+
+                <TextView
+                    android:id="@+id/tv_classic_easy_num1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text=""
+                    android:fontFamily="@font/quicksand_bold"
+                    android:gravity="center"
+                    android:textSize="32sp"
+                    android:textColor="#000000"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/tv_classic_easy_opr1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+
+                    android:fontFamily="@font/quicksand_bold"
+                    android:gravity="center"
+                    android:textSize="32sp"
+                    android:textColor="#000000"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/tv_classic_easy_num2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:textSize="32sp"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text=""
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/tv_classic_easy_equ"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:textSize="32sp"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="="
+                    android:gravity="center"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/tv_classic_easy_op"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:textSize="32sp"
+                    android:textColor="#000000"
+                    android:text=""
+                    ></TextView>
+
+            </LinearLayout>
 
         </LinearLayout>
 
     </LinearLayout>
 
 
+
+
+
+
+
+
+
     <LinearLayout
-        android:layout_below="@id/classic_top_layout"
+        android:layout_below="@id/top_classic_layout"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -192,23 +318,39 @@
             android:orientation="horizontal"
             android:layout_weight="5">
 
-            <ImageButton
+            <Button
+                android:id="@+id/btn_classic_plus"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="5"
-                android:src="@drawable/plus"
+                android:text="+"
+                android:layout_marginLeft="20dp"
+                android:textSize="32sp"
+                android:layout_gravity="bottom"
                 android:scaleType="centerCrop"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/mybutton"
                 android:onClick="OnClassicPlusClick"
-                ></ImageButton>
+                ></Button>
 
-            <ImageButton
+
+            <Button
+                android:id="@+id/btn_classic_minus"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="5"
-                android:src="@drawable/minus"
+                android:text="-"
+                android:gravity="center"
+                android:layout_marginRight="20dp"
+                android:textSize="32sp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="bottom"
+                android:textColor="#FFFFFF"
                 android:scaleType="centerCrop"
+                android:background="@drawable/mybutton"
                 android:onClick="OnClassicMinusClick"
-                ></ImageButton>
+                ></Button>
 
         </LinearLayout>
 
@@ -218,27 +360,42 @@
             android:layout_weight="5"
             >
 
-            <ImageButton
+            <Button
+                android:id="@+id/btn_classic_multiply"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="5"
-                android:src="@drawable/multiply"
+                android:background="@drawable/mybutton"
                 android:scaleType="centerCrop"
+                android:text="*"
+                android:textColor="#FFFFFF"
+                android:textSize="32sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:layout_gravity="top"
                 android:onClick="OnClassicMultiplyClick"
-                ></ImageButton>
+                ></Button>
 
-            <ImageButton
+            <Button
+                android:id="@+id/btn_classic_divide"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:background="@drawable/mybutton"
+                android:layout_height="wrap_content"
                 android:layout_weight="5"
-                android:src="@drawable/divide"
+                android:textSize="32sp"
+                android:text="/"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
                 android:scaleType="centerCrop"
                 android:onClick="OnClassicDivideClick"
-                ></ImageButton>
+                ></Button>
 
         </LinearLayout>
 
     </LinearLayout>
-
 
 </LinearLayout>

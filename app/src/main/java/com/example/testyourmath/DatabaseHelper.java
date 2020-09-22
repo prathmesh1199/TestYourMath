@@ -97,7 +97,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.close();
     }
 
-    public String getData() {
+    public String getData(int level) {
 
         Log.d("here", "getData: 1");
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -108,11 +108,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String ans = " - ";
         if(c.moveToFirst()) {
             Log.d("here", "getData: 4");
-            int idx =c.getColumnIndex("level1");
+            int i1 =c.getColumnIndex("level1");
+            int i2 = c.getColumnIndex("level2");
             Log.d("here", "getData: 5");
-            String current_top_score_string = c.getString(idx);
+            String current_top_score_level1_string = c.getString(i1);
+            String current_top_score_level2_string = c.getString(i2);
             Log.d("here", "getData: 6");
-            ans = current_top_score_string;
+
+            if(level == 1) ans = current_top_score_level1_string;
+            else if(level == 2) ans = current_top_score_level2_string;
+
             Log.d("here", "getData: 7");
         }
 

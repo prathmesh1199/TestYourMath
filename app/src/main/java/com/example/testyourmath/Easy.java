@@ -66,7 +66,7 @@ public class Easy extends AppCompatActivity {
 
         db = new DatabaseHelper(Easy.this);
 
-        String high_score = db.getData();
+        String high_score = db.getData(1);
 
         highest_score = high_score;
 
@@ -225,7 +225,7 @@ public class Easy extends AppCompatActivity {
 
         Log.d("here", "OnDivideClick: " + n1 + " " + n2 + " " + op);
 
-        if(n1 / n2 == op) {
+        if(n1 / n2 == op && n1%n2 == 0) {
             Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
             int score = Integer.parseInt(tv_score.getText().toString().trim());
 
@@ -236,7 +236,7 @@ public class Easy extends AppCompatActivity {
           //added for
             Drawable d = getResources().getDrawable(R.drawable.green_button);
             btn_divide.setBackground(d);
-             DelayButtonColor(btn_divide);
+            DelayButtonColor(btn_divide);
             show();
         }
         else {
@@ -272,7 +272,7 @@ public class Easy extends AppCompatActivity {
                 Drawable d = getResources().getDrawable(R.drawable.mybutton);
                 btn_Color.setBackground(d);
             }
-        }, 2000);
+        }, 200);
 
     }
 

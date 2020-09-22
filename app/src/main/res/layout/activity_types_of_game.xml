@@ -1,48 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/new_background"
+    android:background="@drawable/types_of_games_background"
+    android:weightSum="10"
+    android:orientation="vertical"
     tools:context=".TypesOfGame">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:layout_centerInParent="true"
-        android:layout_above="@id/btn_classic"
-        android:gravity="center"
-        android:fontFamily="@font/quicksand_bold"
-        android:layout_marginBottom="30dp"
-        android:text="Test Your Math"
-        ></TextView>
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        ></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <Button
+            android:id="@+id/btn_classic"
+            android:layout_width="match_parent"
+            android:background="@android:color/transparent"
+            android:text="Classic"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:paddingRight="50dp"
+            android:textColor="@color/textcolor"
+            android:fontFamily="@font/quicksand_bold"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="115dp"
+
+            ></Button>
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_classic"
-        android:text="Classic"
-        android:textSize="24sp"
+    </LinearLayout>
 
-        android:fontFamily="@font/quicksand_bold"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <Button
+            android:id="@+id/btn_timer"
+            android:layout_width="match_parent"
+            android:textSize="24sp"
+            android:background="@android:color/transparent"
+            android:text="Timer"
+            android:textColor="@color/textcolor"
+            android:fontFamily="@font/quicksand_bold"
+            android:layout_gravity="center"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="115dp"
 
-        android:layout_centerInParent="true"
-        ></Button>
+            ></Button>
 
-    <Button
-        android:id="@+id/btn_timer"
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_classic"
-        android:gravity="center"
-        android:layout_centerInParent="true"
-        android:text="Timer"
-        android:textSize="24sp"
-        android:fontFamily="@font/quicksand_bold"
-        ></Button>
+    </LinearLayout>
 
-</RelativeLayout>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+
+       android:layout_weight="1"
+       >
+       <Button
+           android:id="@+id/btn_back"
+           android:layout_width="match_parent"
+           android:background="@android:color/transparent"
+           android:text="Back"
+           android:textSize="24sp"
+           android:paddingBottom="10dp"
+           android:paddingLeft="15dp"
+           android:fontFamily="@font/quicksand_bold"
+           android:textColor="@color/textcolor"
+           android:layout_gravity="center"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="115dp"
+
+           ></Button>
+
+   </LinearLayout>
+
+
+</LinearLayout>
