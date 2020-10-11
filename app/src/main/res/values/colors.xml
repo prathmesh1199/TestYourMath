@@ -4,5 +4,9 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="textcolor">#1C088F</color>
-    <color name="buttoncolor">#DC7ECC</color>
+    <color name="button_plus">#E61D4BD6</color>
+    <color name="button_minus">#DD562D</color>
+    <color name="button_multiply">#E6AB1CB5</color>
+    <color name="button_divide">#8F820F</color>
+    <color name="yellow">#52503A</color>
 </resources>

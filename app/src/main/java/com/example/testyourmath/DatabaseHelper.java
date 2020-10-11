@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 3;
 
     // Database Name
     private static final String DATABASE_NAME = "my_database";
@@ -37,34 +37,47 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String medium = "CREATE TABLE table_medium(level1 VARCHAR , level2 VARCHAR , level3 VARCHAR);";
         String hard = "CREATE TABLE table_hard(level1 VARCHAR , level2 VARCHAR , level3 VARCHAR);";
 
+        String timer = "CREATE TABLE IF NOT EXISTS table_timer(easy VARCHAR , medium VARCHAR , hard VARCHAR);";
+        String classic = "CREATE TABLE IF NOT EXISTS table_classic(easy VARCHAR , medium VARCHAR , hard VARCHAR);";
 
-        sqLiteDatabase.execSQL(easy);
-        sqLiteDatabase.execSQL(medium);
-        sqLiteDatabase.execSQL(hard);
+        //sqLiteDatabase.execSQL(easy);
+        //sqLiteDatabase.execSQL(medium);
+        //sqLiteDatabase.execSQL(hard);
 
+        sqLiteDatabase.execSQL(timer);
+        sqLiteDatabase.execSQL(classic);
 
         ContentValues cv = new ContentValues();
         String s = " - ";
-        cv.put("level1" , s);
-        cv.put("level2" , s);
-        cv.put("level3" , s);
+        cv.put("easy" , s);
+        cv.put("medium" , s);
+        cv.put("hard" , s);
 
-
-        sqLiteDatabase.insert("table_easy" , null , cv);
-        sqLiteDatabase.insert("table_medium" , null , cv);
-        sqLiteDatabase.insert("table_hard" , null , cv);
+        sqLiteDatabase.insert("table_timer" , null , cv);
+        sqLiteDatabase.insert("table_classic" , null , cv);
+        //sqLiteDatabase.insert("table_easy" , null , cv);
+        //sqLiteDatabase.insert("table_medium" , null , cv);
+        //sqLiteDatabase.insert("table_hard" , null , cv);
 
 
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
 
+        Log.d("upgrade", "onUpgrade: ");
+
+        db.execSQL("DROP TABLE IF EXISTS table_easy");
+        db.execSQL("DROP TABLE IF EXISTS table_medium");
+        db.execSQL("DROP TABLE IF EXISTS table_hard");
+
+        // create new table
+        onCreate(db);
     }
 
     public void insert(String stage , String level , int  score) {
-        // stage : easy / medium / hard
-        // level : level 1 / level 2 / level 3
+        // stage : timer / classic
+        // level : easy / medium / hard
 
         String table_name = "table_" + stage;
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -86,37 +99,45 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 int curr = Integer.valueOf(current_top_score_string);
 
                 if(score >= curr) {
-
                     String sc = String.valueOf(score);
-
                     sqLiteDatabase.execSQL("UPDATE " + table_name +  " SET " + level + " = "  + sc );
-
                 }
             }
         }
         sqLiteDatabase.close();
     }
 
-    public String getData(int level) {
+    //easy med hard
+    //timer classic
+
+    public String getData(String stage , String level) {
+
+        // stage : timer / classic
+        // level : easy / medium / hard
 
         Log.d("here", "getData: 1");
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         Log.d("here", "getData: 2");
-        Cursor c = sqLiteDatabase.rawQuery("SELECT * FROM table_easy " , null );
+        String table_name = "table_" + stage;
 
-        Log.d("here", "getData: 3");
+
+        Cursor c = sqLiteDatabase.rawQuery("SELECT * FROM " + table_name  , null );
+
         String ans = " - ";
         if(c.moveToFirst()) {
             Log.d("here", "getData: 4");
-            int i1 =c.getColumnIndex("level1");
-            int i2 = c.getColumnIndex("level2");
+            int i1 =c.getColumnIndex("easy");
+            int i2 = c.getColumnIndex("medium");
+            int i3 = c.getColumnIndex("hard");
             Log.d("here", "getData: 5");
-            String current_top_score_level1_string = c.getString(i1);
-            String current_top_score_level2_string = c.getString(i2);
+            String current_top_score_easy_string = c.getString(i1);
+            String current_top_score_medium_string = c.getString(i2);
+            String current_top_score_hard_string = c.getString(i3);
             Log.d("here", "getData: 6");
 
-            if(level == 1) ans = current_top_score_level1_string;
-            else if(level == 2) ans = current_top_score_level2_string;
+            if(level.equals("easy")) ans = current_top_score_easy_string;
+            else if(level.equals("medium")) ans = current_top_score_medium_string;
+            else if(level.equals("hard")) ans = current_top_score_hard_string;
 
             Log.d("here", "getData: 7");
         }

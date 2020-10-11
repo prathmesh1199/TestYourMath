@@ -4,13 +4,22 @@
 
     <application
         android:allowBackup="true"
-
+        android:icon="@mipmap/launcher_icon"
         android:label="Test Your Math"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-         android:icon="@drawable/logo"
         android:theme="@style/AppTheme">
-        <activity android:name=".ClassicGame"></activity>
+        <activity android:name=".Animation_activity">
+
+        </activity>
+
+        <activity android:name=".Hard_classic" />
+        <activity android:name=".medium_classic" />
+        <activity android:name=".hard_timer" />
+        <activity android:name=".medium_timer" />
+        <activity android:name=".levels_of_game" />
+        <activity android:name=".ClassicGame" />
         <activity android:name=".TypesOfGame" />
         <activity android:name=".Easy" />
         <activity android:name=".MainActivity">

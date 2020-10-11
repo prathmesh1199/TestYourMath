@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/new_background"
+
+    android:weightSum="10"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="6"
+        android:weightSum="10"
+        android:orientation="vertical"
+        >
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:src="@drawable/main_background"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            >
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/tv_heading_text"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_weight="5"
+            android:fontFamily="@font/quicksand_bold"
+            android:gravity="center|top"
+            android:text="Test Your Math"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:padding="20dp"
+            android:textSize="28sp"></TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="vertical"
+        android:weightSum="16"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="10"
+                android:orientation="horizontal"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:weightSum="10"
+                    android:orientation="horizontal"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        ></LinearLayout>
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:maxWidth="40dp"
+                        android:maxHeight="40dp"
+                        android:scaleType="fitCenter"
+                        android:onClick="OnPlayClick"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/new_paint_play"></ImageButton>
+
+                    <TextView
+                        android:id="@+id/tv_play_text"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="5"
+                        android:text="Play"
+                        android:textSize="24sp"
+                        android:gravity="left|center"
+                        android:textColor="@color/design_default_color_on_secondary"
+                        android:fontFamily="@font/quicksand_bold"
+                        ></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:weightSum="10"
+                    android:orientation="horizontal"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        ></LinearLayout>
+
+                    <ImageButton
+
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:onClick="OnSettingClick"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/new_settings"></ImageButton>
+
+                    <TextView
+                        android:id="@+id/tv_settings_text"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="5"
+                        android:text="Settings"
+                        android:textSize="24sp"
+                        android:gravity="center|left"
+                        android:textColor="@color/design_default_color_on_secondary"
+                        android:fontFamily="@font/quicksand_bold"
+                        ></TextView>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:weightSum="10"
+            android:orientation="horizontal"
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                ></LinearLayout>
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:onClick="OnCloseClick"
+                android:layout_gravity="right|end"
+                android:adjustViewBounds="true"
+
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:src="@drawable/new_close"></ImageButton>
+
+            <TextView
+                android:id="@+id/tv_close_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:text="Close"
+                android:textSize="24sp"
+                android:gravity="center|left"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:fontFamily="@font/quicksand_bold"
+                ></TextView>
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+x
+
+
+
+
+
+</LinearLayout>

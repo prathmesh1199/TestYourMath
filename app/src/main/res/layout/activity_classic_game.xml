@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/game_score_background"
+    android:background="@drawable/game_background"
     android:weightSum="10"
     android:orientation="vertical"
     tools:context=".ClassicGame">
@@ -13,7 +13,7 @@
         android:id="@+id/classic_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_weight="6"
         android:weightSum="10"
         android:orientation="vertical"
         >
@@ -30,74 +30,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="4"
-
+                android:weightSum="10"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:orientation="horizontal"
                 >
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:weightSum="15"
-                    android:orientation="horizontal"
-                    >
+                    android:layout_weight="8"
+                    ></LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="4"
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="0dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:src="@drawable/home"
+                    android:backgroundTint="#FFFFFF"
+                    android:scaleType="fitXY"
+                    android:onClick="GotoMainActivity"
+                    ></com.google.android.material.floatingactionbutton.FloatingActionButton>
 
-                        android:gravity="center"
-                        android:fontFamily="@font/quicksand_bold"
-
-                        android:textSize="24sp"
-                        ></TextView>
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-
-                        android:layout_weight="2"
-                        android:gravity="center"
-                        android:fontFamily="@font/quicksand_bold"
-                        android:textSize="24sp"
-                        ></TextView>
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3"
-
-                        android:textSize="24sp"
-                        android:gravity="center"
-                        android:fontFamily="@font/quicksand_bold"
-                        ></TextView>
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3"
-                        android:textSize="24sp"
-                        android:fontFamily="@font/quicksand_bold"
-                        android:gravity="center"
-
-
-                        ></TextView>
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="3"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="20dp"
-                        android:layout_gravity="center_vertical"
-                        android:gravity="center"
-                        android:textSize="24sp"
-
-                        android:fontFamily="@font/quicksand_bold"
-
-                        ></TextView>
-
-
-                </LinearLayout>
 
 
             </LinearLayout>
@@ -107,6 +63,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="6"
                 android:weightSum="10"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical"
                 >
 
@@ -119,12 +76,12 @@
                     >
 
                     <TextView
+                        android:id="@+id/tv_classic_high_score_text"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="7"
                         android:text="Highest Score : "
-                        android:gravity="end|center"
-                        android:textSize="24sp"
+                        android:gravity="center|end"
                         android:fontFamily="@font/quicksand_bold"
                         android:textColor="#000000"
                         ></TextView>
@@ -151,12 +108,12 @@
                     >
 
                     <TextView
+                        android:id="@+id/tv_classic_lives_left_text"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="7"
                         android:text="Lives Left : "
                         android:gravity="center|end"
-                        android:textSize="24sp"
                         android:fontFamily="@font/quicksand_bold"
                         android:textColor="#000000"
                         ></TextView>
@@ -174,11 +131,7 @@
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="5"
-                    ></TextView>
+
 
             </LinearLayout>
 
@@ -192,35 +145,66 @@
             android:orientation="vertical"
             >
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_weight="3"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="10"
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_classic_score_text"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:text="Score        : "
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center|left"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:textColor="#000000"
+                        ></TextView>
+
+                    <TextView
+                        android:id="@+id/tv_classic_score"
+                        android:text="0"
+                        android:gravity="center"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:textColor="#000000"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
+                        ></TextView>
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="4"
-                >
-
-                <TextView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/tv_classic_score"
-                    android:text="0"
-                    android:gravity="center"
-                    android:textSize="28sp"
-                    android:fontFamily="@font/quicksand_bold"
-                    android:textColor="#000000"
-                    android:paddingLeft="170dp"
-                    android:paddingBottom="10dp"
-                    ></TextView>
-
-            </LinearLayout>
-
+                android:layout_weight="1"
+                ></LinearLayout>
 
             <LinearLayout
                 android:id="@+id/top_classic_layout"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:weightSum="10"
-                android:layout_weight="6"
+                android:layout_weight="7"
+
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 >
@@ -298,15 +282,14 @@
 
 
 
-
     <LinearLayout
         android:layout_below="@id/top_classic_layout"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:weightSum="10"
-        android:layout_weight="5"
-        android:padding="5dp"
+        android:layout_weight="4"
+
         android:orientation="vertical"
         >
 
@@ -315,87 +298,126 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:weightSum="10"
+
             android:orientation="horizontal"
-            android:layout_weight="5">
+            android:layout_weight="4">
 
-            <Button
-                android:id="@+id/btn_classic_plus"
+            <RelativeLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="5"
-                android:text="+"
-                android:layout_marginLeft="20dp"
-                android:textSize="32sp"
-                android:layout_gravity="bottom"
-                android:scaleType="centerCrop"
-                android:gravity="center"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/mybutton"
-                android:onClick="OnClassicPlusClick"
-                ></Button>
+                >
 
+                <Button
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/btn_classic_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/background_plus"
+                    android:textSize="32sp"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="bottom|right"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:onClick="OnClassicPlusClick"
+                    ></Button>
 
-            <Button
-                android:id="@+id/btn_classic_minus"
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="5"
-                android:text="-"
-                android:gravity="center"
-                android:layout_marginRight="20dp"
-                android:textSize="32sp"
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="bottom"
-                android:textColor="#FFFFFF"
-                android:scaleType="centerCrop"
-                android:background="@drawable/mybutton"
-                android:onClick="OnClassicMinusClick"
-                ></Button>
+                >
+
+                <Button
+                    android:id="@+id/btn_classic_minus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="-"
+
+                    android:background="@drawable/background_minus"
+                    android:gravity="center"
+                    android:textSize="32sp"
+                    android:layout_alignParentBottom="true"
+                    android:textColor="#FFFFFF"
+                    android:scaleType="centerCrop"
+                    android:onClick="OnClassicMinusClick"
+                    ></Button>
+
+
+            </RelativeLayout>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="5"
+            android:layout_weight="6"
+            android:weightSum="10"
+            android:orientation="horizontal"
             >
 
-            <Button
-                android:id="@+id/btn_classic_multiply"
+            <RelativeLayout
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="5"
-                android:background="@drawable/mybutton"
-                android:scaleType="centerCrop"
-                android:text="*"
-                android:textColor="#FFFFFF"
-                android:textSize="32sp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:gravity="center"
-                android:layout_gravity="top"
-                android:onClick="OnClassicMultiplyClick"
-                ></Button>
+                >
 
-            <Button
-                android:id="@+id/btn_classic_divide"
+                <Button
+                    android:id="@+id/btn_classic_multiply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_multiply"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="centerCrop"
+                    android:text="*"
+                    android:textColor="#FFFFFF"
+                    android:textSize="32sp"
+
+                    android:gravity="center"
+                    android:onClick="OnClassicMultiplyClick"
+                    ></Button>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="0dp"
-                android:background="@drawable/mybutton"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="5"
-                android:textSize="32sp"
-                android:text="/"
-                android:gravity="center"
-                android:textColor="#FFFFFF"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"
-                android:scaleType="centerCrop"
-                android:onClick="OnClassicDivideClick"
-                ></Button>
+                >
+
+                <Button
+                    android:id="@+id/btn_classic_divide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="centerCrop"
+                    android:text="/"
+                    android:textColor="#FFFFFF"
+                    android:textSize="32sp"
+                    android:background="@drawable/background_divide"
+                    android:layout_alignParentLeft="true"
+                    android:onClick="OnClassicDivideClick"
+                    ></Button>
+
+
+            </RelativeLayout>
+
 
         </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+    </LinearLayout>
+

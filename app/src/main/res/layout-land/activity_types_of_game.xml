@@ -1,0 +1,109 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:weightSum="10"
+    android:orientation="vertical"
+    tools:context=".TypesOfGame">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/number_background"
+            android:scaleType="fitXY"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="10"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="6"
+                ></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                >
+
+                <Button
+                    android:id="@+id/btn_classic"
+                    android:layout_width="match_parent"
+                    android:background="@android:color/transparent"
+                    android:text="Classic"
+                    android:textSize="17sp"
+                    android:gravity="center|top"
+                    android:paddingRight="70dp"
+                    android:textColor="@color/textcolor"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="115dp"
+
+                    ></Button>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                >
+                <Button
+                    android:id="@+id/btn_timer"
+                    android:layout_width="match_parent"
+                    android:textSize="17sp"
+                    android:background="@android:color/transparent"
+                    android:text="Timer"
+                    android:paddingLeft="17dp"
+                    android:textColor="@color/textcolor"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:layout_gravity="center|top"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="115dp"
+
+                    ></Button>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+
+                android:layout_weight="1"
+                >
+                <Button
+                    android:id="@+id/btn_back"
+                    android:layout_width="match_parent"
+                    android:background="@android:color/transparent"
+                    android:text="Back"
+                    android:textSize="17sp"
+                    android:paddingLeft="90dp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:textColor="@color/textcolor"
+                    android:paddingTop="5dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="115dp"
+
+                    ></Button>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
